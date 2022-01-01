@@ -23,7 +23,7 @@ const IndexPage = () => (
         Ler Escritos
       </button>{" "}
       <button className="btn" id="publicar-btn">
-        Publicar Escritos
+        <Link to="escritos">Publicar Escritos</Link>
       </button>
     </main>
   </Layout>

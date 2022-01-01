@@ -224,3 +224,16 @@ button:hover,
 #publicar-btn:hover {
   background-color: rgb(128, 108, 0);
 }
+
+footer {
+  text-align: center;
+  background-color: var(--secondary);
+  color: var(--white);
+  padding: 0.7rem;
+  font-size: small;
+}
+
+#date {
+  text-align: center;
+  padding: 1rem;
+}
