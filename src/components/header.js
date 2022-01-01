@@ -2,10 +2,10 @@ import React, { useState } from "react";
 import { Link } from "gatsby";
 
 import {
-  MdArrowDropDown,
+  MdOutlineLogin,
   MdClose,
   MdMenu,
-  MdOutlineInfo,
+  MdInfo,
   MdPerson,
 } from "react-icons/md";
 
@@ -31,14 +31,15 @@ const Header = ({ siteTitle }) => {
           }`}
         >
           <ul className="links">
-            <MdOutlineInfo />
-            <FaPenAlt />
-            <div className="terapias-dropdown">
-              <Link>
-                <MdPerson /> <MdArrowDropDown />
-                <div className="terapias-dropdown-content"></div>
-              </Link>
-            </div>
+            <Link to="info">
+              <MdInfo />
+            </Link>
+            <Link to="/escritos">
+              <FaPenAlt />
+            </Link>
+            <Link to="/login">
+              <MdOutlineLogin />
+            </Link>
           </ul>
         </div>
       </div>

@@ -15,10 +15,16 @@ const IndexPage = () => (
           src="../images/pen.jpg"
           quality={95}
           alt="Foto de uma caneta antiga"
-          style={{ margin: `1rem auto`, textAlign: `center` }}
+          layout="constrained"
+          placeholder="blurred"
         />
-        <p></p>
       </section>
+      <button className="btn" id="ler-btn">
+        Ler Escritos
+      </button>{" "}
+      <button className="btn" id="publicar-btn">
+        Publicar Escritos
+      </button>
     </main>
   </Layout>
 );
