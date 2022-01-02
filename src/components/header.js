@@ -1,13 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "gatsby";
 
-import {
-  MdOutlineLogin,
-  MdClose,
-  MdMenu,
-  MdInfo,
-  MdPerson,
-} from "react-icons/md";
+import { MdOutlineLogin, MdClose, MdMenu, MdInfo } from "react-icons/md";
 
 import { FaPenAlt } from "react-icons/fa";
 

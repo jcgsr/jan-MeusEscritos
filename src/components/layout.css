@@ -16,6 +16,7 @@
   --primary: #2c3e50;
   --secondary: #343a40;
   --terciary: rgb(209, 196, 233);
+  --fouth: #575151;
 
   /* grey */
   --grey-0: #fafbfc;
@@ -60,6 +61,7 @@
 }
 html {
   font-size: var(--defaultFontSize);
+  color: var(--black);
 }
 @media only screen and (min-width: 576px) {
   :root {
@@ -206,16 +208,24 @@ button:hover,
   box-shadow: var(--shadow-1);
 }
 
-#ler-btn {
+button a {
+  text-decoration: none;
+}
+
+button a:visited {
+  color: var(--white);
+}
+
+#publicar-btn {
   background-color: rgb(20, 169, 86);
   color: var(--white);
   transition: var(--transition);
 }
 
-#ler-btn:hover {
+#publicar-btn:hover {
   background-color: rgb(20, 99, 86);
 }
-#publicar-btn {
+/*#publicar-btn {
   background-color: rgb(158, 108, 0);
   color: var(--white);
   transition: var(--transition);
@@ -223,7 +233,7 @@ button:hover,
 
 #publicar-btn:hover {
   background-color: rgb(128, 108, 0);
-}
+}*/
 
 footer {
   text-align: center;
@@ -231,9 +241,30 @@ footer {
   color: var(--white);
   padding: 0.7rem;
   font-size: small;
+  width: 100%;
 }
 
-#date {
-  text-align: center;
+.escritos {
+  background-color: var(--fouth);
+  color: var(--white);
+  margin: 1rem auto;
   padding: 1rem;
+  text-align: center;
+  width: 60%;
+  box-shadow: var(--shadow-2);
+  line-height: 1.6rem;
+}
+@media screen and (max-width: 456px) {
+  .escritos {
+    width: 90%;
+  }
+}
+.spinner {
+  margin: 5rem auto;
+  text-align: center;
+}
+
+hr {
+  border-top: 1px solid var(--grey-600);
+  margin: 1rem;
 }

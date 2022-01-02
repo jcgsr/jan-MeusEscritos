@@ -23,12 +23,27 @@ module.exports = {
         name: `gatsby-starter-default`,
         short_name: `starter`,
         start_url: `/`,
-        background_color: `#663399`,
+        background_color: `#bbb`,
         // This will impact how browsers show your PWA/website
         // https://css-tricks.com/meta-theme-color-and-trickery/
         // theme_color: `#663399`,
         display: `minimal-ui`,
         icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
+      },
+    },
+    {
+      resolve: "gatsby-plugin-firebase-v9.0",
+      options: {
+        credentials: {
+          apiKey: "AIzaSyCEAqdkvf1vXzMJXu7N6T3OgPQHW0UE5Ug",
+          authDomain: "meusescritos-2bc34.firebaseapp.com",
+          databaseURL: "https://meusescritos-2bc34.firebaseio.com",
+          projectId: "meusescritos-2bc34",
+          storageBucket: "meusescritos-2bc34.appspot.com",
+          messagingSenderId: "1018889555488",
+          appId: "1:1018889555488:web:3b05a9536c2313cff3f645",
+          measurementId: "G-ZK5M6Z7TCH",
+        },
       },
     },
   ],

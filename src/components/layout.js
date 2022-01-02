@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import PropTypes from "prop-types";
 import { useStaticQuery, graphql } from "gatsby";
 
@@ -30,7 +30,6 @@ const Layout = ({ children }) => {
         }}
       >
         <main>{children}</main>
-        <p id="date"></p>
         <Footer />
       </div>
     </>
