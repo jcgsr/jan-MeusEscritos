@@ -5,6 +5,8 @@ import { StaticImage } from "gatsby-plugin-image";
 import Layout from "../components/layout";
 import Seo from "../components/seo";
 
+import parse from "html-react-parser";
+
 import app from "gatsby-plugin-firebase-v9.0";
 
 import PulseLoader from "react-spinners/PulseLoader";
@@ -68,6 +70,7 @@ const IndexPage = () => {
         </section>
         {/*<button className="btn" id="ler-btn">
         Ler Escritos
+        replace(/(<([^>]+)>)/gi, "")
       </button>{" "}*/}
         <button className="btn">
           <Link to="/escritos">Publicar Escritos</Link>
@@ -84,7 +87,7 @@ const IndexPage = () => {
                   {" "}
                   Título: <strong>{escrito.titulo}</strong>
                 </p>
-                <p>{escrito.escrito.replace(/(<([^>]+)>)/gi, "")}</p>
+                <p>{parse(escrito.escrito)}</p>
                 <hr />
               </div>
             );
