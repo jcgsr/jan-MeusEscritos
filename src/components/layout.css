@@ -17,6 +17,7 @@
   --secondary: #343a40;
   --terciary: rgb(209, 196, 233);
   --fouth: #575151;
+  --ice: rgba(186, 205, 202, 0.5);
 
   /* grey */
   --grey-0: #fafbfc;
@@ -41,8 +42,8 @@
   --green-light: #d1e7dd;
   --green-dark: #0f5132;
   /* box shadows */
-  --shadow-1: 2px 2px 3px #ddd;
-  --shadow-2: 0 0 10px rgba(0, 0, 0, 0.4);
+  --shadow-1: 3px 5px 3px #aaa;
+  --shadow-2: 3px 5px 3px #222;
 
   /* typography */
   --defaultFontSize: 87.5%;
@@ -62,6 +63,7 @@
 html {
   font-size: var(--defaultFontSize);
   color: var(--black);
+  background-color: var(--ice);
 }
 @media only screen and (min-width: 576px) {
   :root {
@@ -190,22 +192,23 @@ button,
 .btn {
   cursor: pointer;
   appearance: none;
-  color: var(--btnColor);
-  background: var(--bgColor);
+  background-color: rgb(20, 169, 86);
+  color: var(--white);
   border: none;
   border-radius: var(--borderRadius);
   letter-spacing: var(--letterSpacing);
   padding: 0.375rem 0.75rem;
-  box-shadow: var(--shadow-2);
+  box-shadow: var(--shadow-1);
   transition: var(--transition);
   text-transform: capitalize;
-  margin: 2rem;
+  margin: 2rem auto;
+  text-align: center;
 }
 button:hover,
 .btn:hover {
   color: var(--white);
-  background: var(--primary);
-  box-shadow: var(--shadow-1);
+  background-color: rgb(20, 99, 86);
+  box-shadow: var(--shadow-2);
 }
 
 button a {
@@ -216,25 +219,6 @@ button a:visited {
   color: var(--white);
 }
 
-#publicar-btn {
-  background-color: rgb(20, 169, 86);
-  color: var(--white);
-  transition: var(--transition);
-}
-
-#publicar-btn:hover {
-  background-color: rgb(20, 99, 86);
-}
-/*#publicar-btn {
-  background-color: rgb(158, 108, 0);
-  color: var(--white);
-  transition: var(--transition);
-}
-
-#publicar-btn:hover {
-  background-color: rgb(128, 108, 0);
-}*/
-
 footer {
   text-align: center;
   background-color: var(--secondary);
@@ -242,6 +226,7 @@ footer {
   padding: 0.7rem;
   font-size: small;
   width: 100%;
+  margin-top: 3rem;
 }
 
 .escritos {
@@ -250,8 +235,9 @@ footer {
   margin: 1rem auto;
   padding: 1rem;
   text-align: center;
+  border-radius: var(--borderRadius);
   width: 60%;
-  box-shadow: var(--shadow-2);
+  box-shadow: var(--shadow-1);
   line-height: 1.6rem;
 }
 @media screen and (max-width: 456px) {
@@ -267,4 +253,32 @@ footer {
 hr {
   border-top: 1px solid var(--grey-600);
   margin: 1rem;
+}
+
+#jodit-editor {
+  margin-bottom: 2rem;
+}
+.credentials {
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+  padding: 1rem;
+  margin: 1rem auto;
+}
+.credentials input {
+  margin-top: 1rem;
+  border: 1px solid var(--grey-700);
+  padding: 0.5rem;
+  border-radius: var(--borderRadius);
+}
+#obrigatorio {
+  color: red;
+  font-size: 12px;
+  text-align: left;
+  margin-top: 1rem;
+}
+@media only screen and (max-width: 456px) {
+  .credentials {
+    width: 90%;
+  }
 }

@@ -1,50 +1,114 @@
-import React, { useState, useMemo, useRef } from "react";
+import React, { useState, useRef } from "react";
 // import { Link } from "gatsby";
 
 import Layout from "../components/layout";
 import Seo from "../components/seo";
 
-// import { createEditor } from "slate";
-// import { Slate, Editable, withReact } from "slate-react";
+import { toast, Toaster } from "react-hot-toast";
 
 import JoditEditor from "jodit-react";
 
+import app from "gatsby-plugin-firebase-v9.0";
+
+import {
+  addDoc,
+  collection,
+  getDocs,
+  doc,
+  getFirestore,
+} from "firebase/firestore";
+
 const Escritos = () => {
   const editor = useRef(null);
-  const [content, setContent] = useState("Start writing");
+  const [escrito, setEscrito] = useState("");
+  const [date, setDate] = useState("");
+  const [email, setEmail] = useState("");
+  const [autor, setAutor] = useState("");
+  const [titulo, setTitulo] = useState("");
+
+  const db = getFirestore(app);
+  const escritosColRef = collection(db, "escritos");
+
   const config = {
     readonly: false,
     height: 400,
+    placeholder: "Comece a escrever...",
   };
-  const handleUpdate = event => {
-    const editorContent = event.target.innerHTML;
-    setContent(editorContent);
+  // const handleUpdate = event => {
+  //   const editorContent = event.target.innerHTML;
+  //   setEscrito(editorContent);
+  // };
+  const handleInsert = async e => {
+    e.preventDefault();
+    try {
+      await addDoc(escritosColRef, {
+        date: date,
+        email: email,
+        autor: autor,
+        titulo: titulo,
+        escrito: escrito,
+      });
+      toast.success("Escrito salvo!");
+      limpar();
+    } catch (error) {
+      toast.error(error);
+    }
   };
-  // const editor = useMemo(() => withReact(createEditor()), []);
-  // const [value, setValue] = useState([
-  //   {
-  //     type: "paragraph",
-  //     children: [{ text: "We have some base content." }],
-  //   },
-  // ]);
+  const limpar = () => {
+    setDate("");
+    setEmail("");
+    setAutor("");
+    setTitulo("");
+    setEscrito("");
+  };
+
   return (
     <Layout>
       <Seo title="Formulário para enviar e salvar os seus escritos para serem publicados" />
       <h1>Adicionar novo Escrito</h1>
-      <JoditEditor
-        ref={editor}
-        value={content}
-        config={config}
-        onBlur={handleUpdate}
-        onChange={newContent => {}}
-      />
-      {/* <Slate
-        editor={editor}
-        value={value}
-        onChange={newValue => setValue(newValue)}
-      >
-        <Editable style={{ border: "1px solid black" }} />
-      </Slate>*/}
+      <Toaster />
+      <section>
+        <form className="form">
+          <section className="credentials">
+            <input
+              type="date"
+              value={date}
+              onChange={e => setDate(e.target.value)}
+            />
+            <input
+              placeholder="e-mail*"
+              type="text"
+              value={email}
+              onChange={e => setEmail(e.target.value)}
+            />
+            <input
+              placeholder="autor"
+              type="text"
+              value={autor}
+              onChange={e => setAutor(e.target.value)}
+            />
+            <input
+              placeholder="título"
+              type="text"
+              value={titulo}
+              onChange={e => setTitulo(e.target.value)}
+            />
+            <p id="obrigatorio">*Campo obrigatório</p>
+          </section>
+
+          <JoditEditor
+            id="jodit-editor"
+            ref={editor}
+            value={escrito}
+            config={config}
+            onBlur={newContent => setEscrito(newContent)}
+            onChange={newContent => {}}
+          />
+          <button className="btn" onClick={handleInsert}>
+            publicar escrito
+          </button>
+        </form>
+      </section>
     </Layout>
   );
 };

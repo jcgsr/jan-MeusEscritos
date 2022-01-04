@@ -69,23 +69,23 @@ const IndexPage = () => {
         {/*<button className="btn" id="ler-btn">
         Ler Escritos
       </button>{" "}*/}
-        <button className="btn" id="publicar-btn">
+        <button className="btn">
           <Link to="/escritos">Publicar Escritos</Link>
         </button>
         <h2>Escritos</h2>
         <section className="escritos">
           {escritos.map(escrito => {
             return (
-              <div>
+              <div id="obras">
                 <p>
                   Autor: <strong>{escrito.autor}</strong>
                 </p>
                 <p>
                   {" "}
-                  Título: <strong>{escrito.obra_titulo}</strong>
+                  Título: <strong>{escrito.titulo}</strong>
                 </p>
+                <p>{escrito.escrito.replace(/(<([^>]+)>)/gi, "")}</p>
                 <hr />
-                <p>{escrito.escrito}</p>
               </div>
             );
           })}
