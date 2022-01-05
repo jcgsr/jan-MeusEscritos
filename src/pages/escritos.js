@@ -74,8 +74,6 @@ const Escritos = () => {
               type="date"
               value={date}
               onChange={e => setDate(e.target.value)}
-            />
-            <input
               placeholder="e-mail*"
               type="text"
               value={email}

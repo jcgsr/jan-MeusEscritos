@@ -230,20 +230,28 @@ footer {
 }
 
 .escritos {
-  background-color: var(--fouth);
-  color: var(--white);
+  background-color: var(--ice);
+  color: var(--grey-1100);
   margin: 1rem auto;
   padding: 1rem;
   text-align: center;
   border-radius: var(--borderRadius);
-  width: 60%;
-  box-shadow: var(--shadow-1);
+  width: 78%;
+  box-shadow: var(--shadow-2);
   line-height: 1.6rem;
 }
 @media screen and (max-width: 456px) {
   .escritos {
     width: 90%;
   }
+}
+#obras {
+  background-color: var(--fouth);
+  color: var(--white);
+  text-align: left;
+  padding: 1rem;
+  border-radius: var(--borderRadius);
+  box-shadow: var(--shadow-1);
 }
 .spinner {
   margin: 5rem auto;
@@ -281,4 +289,15 @@ hr {
   .credentials {
     width: 90%;
   }
+}
+#readmore {
+  background-color: rgba(165, 42, 42, 0.9);
+  box-shadow: var(--shadow-2);
+  margin: 1rem;
+  font-size: smaller;
+  transition: var(--transition);
+}
+
+#readmore:hover {
+  background-color: rgba(125, 42, 42, 0.9);
 }

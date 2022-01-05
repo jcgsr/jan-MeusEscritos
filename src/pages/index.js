@@ -30,6 +30,9 @@ const IndexPage = () => {
   const escritosColRef = collection(db, "escritos");
   const q = query(escritosColRef, orderBy("autor"));
 
+  // Mostrar mais/menos
+  const [readmore, setReadmore] = useState(false);
+
   useEffect(() => {
     const getEscritos = async () => {
       const escritosData = await getDocs(q);
@@ -79,7 +82,7 @@ const IndexPage = () => {
         <section className="escritos">
           {escritos.map(escrito => {
             return (
-              <div id="obras">
+              <div>
                 <p>
                   Autor: <strong>{escrito.autor}</strong>
                 </p>
@@ -87,7 +90,15 @@ const IndexPage = () => {
                   {" "}
                   Título: <strong>{escrito.titulo}</strong>
                 </p>
-                <p>{parse(escrito.escrito)}</p>
+                <div id="obras">
+                  {" "}
+                  {readmore
+                    ? parse(escrito.escrito)
+                    : parse(escrito.escrito.substring(0, 200))}
+                  <button id="readmore" onClick={() => setReadmore(!readmore)}>
+                    {readmore ? "ler menos" : "ler mais"}
+                  </button>
+                </div>
                 <hr />
               </div>
             );
