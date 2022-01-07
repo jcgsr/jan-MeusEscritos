@@ -108,18 +108,18 @@ const Escritos = () => {
             />
             <p id="obrigatorio">*Campo obrigatório</p>
           </section>
-
-          <JoditEditor
-            id="jodit-editor"
-            ref={editor}
-            value={escrito}
-            config={config}
-            onBlur={newContent => setEscrito(newContent)}
-            onChange={newContent => {}}
-          />
-          <button type="submit" className="btn" onClick={handleInsert}>
-            publicar
-          </button>
+          <div id="jodit-editor">
+            <JoditEditor
+              ref={editor}
+              value={escrito}
+              config={config}
+              onBlur={newContent => setEscrito(newContent)}
+              onChange={newContent => {}}
+            />
+            <button type="submit" className="btn" onClick={handleInsert}>
+              publicar
+            </button>
+          </div>
         </form>
       </section>
     </Layout>

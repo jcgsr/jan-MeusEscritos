@@ -37,7 +37,7 @@
   /* rest */
   --black: #222;
   --white: #fff;
-  --red-light: #f8d7da;
+  --red-light: #ff0000;
   --red-dark: #842029;
   --green-light: #d1e7dd;
   --green-dark: #0f5132;
@@ -64,6 +64,7 @@ html {
   font-size: var(--defaultFontSize);
   color: var(--black);
   background-color: var(--ice);
+  scroll-behavior: smooth;
 }
 @media only screen and (min-width: 576px) {
   :root {
@@ -281,6 +282,22 @@ footer {
   box-shadow: var(--shadow-1);
 }
 
+#obras a {
+  color: var(--grey-700);
+}
+
+.info,
+#obras {
+  width: 70%;
+  margin: 0 auto;
+}
+
+@media only screen and (max-width: 456px) {
+  .info {
+    width: 90%;
+  }
+}
+
 .info ul {
   padding: 1rem 1rem;
   line-height: 1.8rem;
@@ -301,7 +318,11 @@ hr {
 }
 
 #jodit-editor {
-  margin-bottom: 2rem;
+  margin: 2rem auto;
+  width: 90%;
+}
+#jodit-editor button {
+  text-align: center;
 }
 .credentials {
   display: flex;
@@ -351,5 +372,67 @@ hr {
 
 .contatos a {
   color: var(--ice);
-  font-size: 3rem;
+  font-size: 2.5rem;
+}
+
+.form-login {
+  padding: 0.6rem;
+  display: flex;
+  flex-direction: column;
+}
+.form-login input {
+  width: 30%;
+  margin: 1rem auto;
+  text-align: center;
+  padding: 1rem;
+}
+
+.form-login button {
+  width: 13%;
+  margin: 1rem auto;
+  background-color: var(--fouth);
+  transition: var(--transition);
+}
+
+.form-login button:hover {
+  background-color: var(--ice);
+  color: var(--fouth);
+}
+
+@media only screen and (max-width: 456px) {
+  .form-login input {
+    width: 70%;
+  }
+  .form-login button {
+    width: 30%;
+  }
+}
+
+.not-found {
+  margin: 0 auto;
+  text-align: center;
+}
+
+.edit {
+  margin: 0 auto;
+  text-align: center;
+}
+#logout {
+  background-color: var(--red-dark);
+  color: white;
+  padding: 0.5rem;
+  transition: 0.4s ease-in-out;
+  margin-top: 2rem;
+  width: 10%;
+  margin: 1rem auto;
+}
+#excluir {
+  background-color: var(--red-light);
+  color: var(--white);
+  transition: 0.4s ease-in-out;
+}
+#excluir:hover {
+  background-color: var(--white);
+  color: var(--red-light);
+  transition: 0.4s ease-in-out;
 }

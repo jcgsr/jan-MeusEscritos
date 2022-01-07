@@ -9,6 +9,8 @@ import parse from "html-react-parser";
 
 import app from "gatsby-plugin-firebase-v9.0";
 
+import { BsFillArrowUpCircleFill } from "react-icons/bs";
+
 import PulseLoader from "react-spinners/PulseLoader";
 
 import { toast, Toaster } from "react-hot-toast";
@@ -52,7 +54,7 @@ const IndexPage = () => {
   if (loading) {
     return (
       <div className="spinner">
-        <PulseLoader coloer="grey" />
+        <PulseLoader color="grey" />
       </div>
     );
   }
@@ -62,7 +64,7 @@ const IndexPage = () => {
       <main className="page">
         <section>
           <Toaster />
-          <h1>Meus Escritos</h1>
+          <h1 id="beginning">Meus Escritos</h1>
           <StaticImage
             src="../images/pen.jpg"
             quality={95}
@@ -71,10 +73,7 @@ const IndexPage = () => {
             placeholder="blurred"
           />
         </section>
-        {/*<button className="btn" id="ler-btn">
-        Ler Escritos
-        replace(/(<([^>]+)>)/gi, "")
-      </button>{" "}*/}
+
         <button className="btn">
           <Link to="/escritos">Publicar Escritos</Link>
         </button>
@@ -98,6 +97,9 @@ const IndexPage = () => {
                   <button id="readmore" onClick={() => setReadmore(!readmore)}>
                     {readmore ? "ler menos" : "ler mais"}
                   </button>
+                  <Link to="#beginning">
+                    <BsFillArrowUpCircleFill />
+                  </Link>
                 </div>
                 <hr />
               </div>
