@@ -22,7 +22,7 @@ const Escritos = () => {
   const editor = useRef(null);
   const [escrito, setEscrito] = useState("");
   const [date, setDate] = useState("");
-  const [email, setEmail] = useState("");
+  const [email, setEmail] = useState();
   const [autor, setAutor] = useState("");
   const [titulo, setTitulo] = useState("");
 
@@ -38,20 +38,33 @@ const Escritos = () => {
   //   const editorContent = event.target.innerHTML;
   //   setEscrito(editorContent);
   // };
+
   const handleInsert = async e => {
+    let emailValid = /^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
     e.preventDefault();
-    try {
-      await addDoc(escritosColRef, {
-        date: date,
-        email: email,
-        autor: autor,
-        titulo: titulo,
-        escrito: escrito,
-      });
-      toast.success("Escrito salvo!");
-      limpar();
-    } catch (error) {
-      toast.error(error);
+
+    if (email.length === 0) {
+      toast.error("O campo e-mail tem que ser preenchido!");
+      return;
+    } else if (emailValid.test(email) === false) {
+      toast.error("email inválido!");
+    } else if (emailValid.test(email) === true) {
+      try {
+        await addDoc(escritosColRef, {
+          date: date,
+          email: email,
+          autor: autor,
+          titulo: titulo,
+          escrito: escrito,
+        });
+        toast.success("Escrito salvo!");
+
+        limpar();
+      } catch (error) {
+        toast.error(error);
+      }
+    } else {
+      toast.error("Erro");
     }
   };
   const limpar = () => {
@@ -74,6 +87,8 @@ const Escritos = () => {
               type="date"
               value={date}
               onChange={e => setDate(e.target.value)}
+            />
+            <input
               placeholder="e-mail*"
               type="text"
               value={email}
@@ -102,7 +117,7 @@ const Escritos = () => {
             onBlur={newContent => setEscrito(newContent)}
             onChange={newContent => {}}
           />
-          <button className="btn" onClick={handleInsert}>
+          <button type="submit" className="btn" onClick={handleInsert}>
             publicar escrito
           </button>
         </form>
