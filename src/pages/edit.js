@@ -23,12 +23,14 @@ import { toast, Toaster } from "react-hot-toast";
 import Layout from "../components/layout";
 import Seo from "../components/seo";
 
-const Edit = () => {
+const Edit = ({ location, ...rest }) => {
 	const [escritos, setEscritos] = useState([]);
 	const [loading, setLoading] = useState(true);
 	const db = getFirestore(app);
 	const escritosColRef = collection(db, "escritos");
 	const q = query(escritosColRef, orderBy("autor"));
+	const auth = getAuth(app);
+	const user = auth.currentUser;
 
 	useEffect(() => {
 		const getEscritos = async () => {
@@ -40,6 +42,11 @@ const Edit = () => {
 		};
 		getEscritos();
 	}, []);
+
+	if (!user && location.pathname !== `/login`) {
+		navigate("/login");
+		return null;
+	}
 
 	const handleLogout = async () => {
 		const auth = getAuth(app);

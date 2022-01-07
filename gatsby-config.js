@@ -1,3 +1,7 @@
+require("dotenv").config({
+  path: `.env.${process.env.NODE_ENV}`,
+});
+
 module.exports = {
   siteMetadata: {
     title: `Meus Escritos`,
@@ -35,12 +39,19 @@ module.exports = {
       resolve: "gatsby-plugin-firebase-v9.0",
       options: {
         credentials: {
-          apiKey: "AIzaSyCEAqdkvf1vXzMJXu7N6T3OgPQHW0UE5Ug",
-          authDomain: "meusescritos-2bc34.firebaseapp.com",
-          databaseURL: "https://meusescritos-2bc34.firebaseio.com",
-          projectId: "meusescritos-2bc34",
-          storageBucket: "meusescritos-2bc34.appspot.com",
-          messagingSenderId: "1018889555488",
+          // apiKey: "AIzaSyCEAqdkvf1vXzMJXu7N6T3OgPQHW0UE5Ug",
+          // authDomain: "meusescritos-2bc34.firebaseapp.com",
+          // databaseURL: "https://meusescritos-2bc34.firebaseio.com",
+          // projectId: "meusescritos-2bc34",
+          // storageBucket: "meusescritos-2bc34.appspot.com",
+          // messagingSenderId: "1018889555488",
+          // appId: "1:1018889555488:web:3b05a9536c2313cff3f645",
+          // measurementId: "G-ZK5M6Z7TCH",
+          apiKey: process.env.GATSBY_PUBLIC_FIREBASE_API_KEY,
+          authDomain: `${process.env.GATSBY_PUBLIC_FIREBASE_PROJECT_ID}firebaseapp.com`,
+          databaseURL: `https://${process.env.GATSBY_PUBLIC_FIREBASE_PROJECT_ID}.firebaseio.com`,
+          projectId: process.env.GATSBY_PUBLIC_FIREBASE_PROJECT_ID,
+          storageBucket: `${process.env.GATSBY_PUBLIC_FIREBASE_PROJECT_ID}.appspot.com`,
           appId: "1:1018889555488:web:3b05a9536c2313cff3f645",
           measurementId: "G-ZK5M6Z7TCH",
         },
