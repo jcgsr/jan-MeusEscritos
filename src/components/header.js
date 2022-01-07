@@ -25,7 +25,7 @@ const Header = ({ siteTitle }) => {
           }`}
         >
           <ul className="links">
-            <Link to="info">
+            <Link to="/info">
               <MdInfo />
             </Link>
             <Link to="/escritos">

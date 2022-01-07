@@ -84,6 +84,12 @@ h2 {
   text-align: center;
 }
 
+h4,
+h5 {
+  margin: 1.2rem auto;
+  text-align: center;
+}
+
 /* MY NAVBAR */
 nav {
   box-shadow: var(--shadow-1);
@@ -211,6 +217,26 @@ button:hover,
   box-shadow: var(--shadow-2);
 }
 
+.info-links {
+  cursor: pointer;
+  appearance: none;
+  background-color: var(--secondary);
+  color: var(--white);
+  border: none;
+  text-decoration: none;
+  border-radius: var(--borderRadius);
+  letter-spacing: var(--letterSpacing);
+  padding: 0.3rem;
+  box-shadow: var(--shadow-2);
+  transition: var(--transition);
+  text-align: center;
+}
+
+.info-links:hover {
+  background-color: var(--white);
+  color: var(--secondary);
+}
+
 button a {
   text-decoration: none;
 }
@@ -245,7 +271,8 @@ footer {
     width: 90%;
   }
 }
-#obras {
+#obras,
+.info {
   background-color: var(--fouth);
   color: var(--white);
   text-align: left;
@@ -253,9 +280,19 @@ footer {
   border-radius: var(--borderRadius);
   box-shadow: var(--shadow-1);
 }
+
+.info ul {
+  padding: 1rem 1rem;
+  line-height: 1.8rem;
+}
 .spinner {
   margin: 5rem auto;
   text-align: center;
+}
+.info p {
+  font-size: small;
+  width: 70%;
+  margin: 0 auto;
 }
 
 hr {
@@ -300,4 +337,19 @@ hr {
 
 #readmore:hover {
   background-color: rgba(125, 42, 42, 0.9);
+}
+
+.contatos {
+  display: flex;
+  flex-direction: row;
+  justify-items: space-between;
+  justify-content: space-around;
+}
+.contatos button {
+  background-color: transparent;
+}
+
+.contatos a {
+  color: var(--ice);
+  font-size: 3rem;
 }

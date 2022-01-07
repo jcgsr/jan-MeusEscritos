@@ -43,7 +43,7 @@ const Escritos = () => {
     let emailValid = /^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
     e.preventDefault();
 
-    if (email.length === 0) {
+    if (!email) {
       toast.error("O campo e-mail tem que ser preenchido!");
       return;
     } else if (emailValid.test(email) === false) {
@@ -118,7 +118,7 @@ const Escritos = () => {
             onChange={newContent => {}}
           />
           <button type="submit" className="btn" onClick={handleInsert}>
-            publicar escrito
+            publicar
           </button>
         </form>
       </section>
