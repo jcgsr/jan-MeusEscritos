@@ -29,6 +29,8 @@ const Edit = ({ location, ...rest }) => {
 	const db = getFirestore(app);
 	const escritosColRef = collection(db, "escritos");
 	const q = query(escritosColRef, orderBy("autor"));
+
+	//logged in
 	const auth = getAuth(app);
 	const user = auth.currentUser;
 
@@ -41,12 +43,11 @@ const Edit = ({ location, ...rest }) => {
 			setLoading(false);
 		};
 		getEscritos();
+		if (!user && location.pathname !== `/login`) {
+			navigate("/login");
+			return null;
+		}
 	}, []);
-
-	if (!user && location.pathname !== `/login`) {
-		navigate("/login");
-		return null;
-	}
 
 	const handleLogout = async () => {
 		const auth = getAuth(app);

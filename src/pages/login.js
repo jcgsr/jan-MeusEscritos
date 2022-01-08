@@ -13,6 +13,7 @@ import Layout from "../components/layout";
 import Seo from "../components/seo";
 
 const Login = () => {
+	// export const isBrowser = () => typeof window !== "undefined";
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
 
@@ -21,7 +22,6 @@ const Login = () => {
 		const auth = getAuth(app);
 		try {
 			await signInWithEmailAndPassword(auth, email, password);
-
 			navigate("/edit");
 			toast.success("Logado com sucesso!");
 		} catch (error) {
