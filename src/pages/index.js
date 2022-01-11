@@ -28,9 +28,12 @@ const IndexPage = () => {
   // Escritos mostrar
   const [escritos, setEscritos] = useState([]);
   const [loading, setLoading] = useState(true);
-  const db = getFirestore(app);
-  const escritosColRef = collection(db, "escritos");
   const q = query(escritosColRef, orderBy("autor"));
+
+  if (typeof window !== "undefined") {
+    const db = getFirestore(app);
+    const escritosColRef = collection(db, "escritos");
+  }
 
   // Mostrar mais/menos
   const [readmore, setReadmore] = useState(false);

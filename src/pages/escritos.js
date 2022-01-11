@@ -25,18 +25,16 @@ const Escritos = () => {
   const [autor, setAutor] = useState("");
   const [titulo, setTitulo] = useState("");
 
-  const db = getFirestore(app);
-  const escritosColRef = collection(db, "escritos");
+  if (typeof window !== "undefined") {
+    const db = getFirestore(app);
+    const escritosColRef = collection(db, "escritos");
+  }
 
   const config = {
     readonly: false,
     height: 400,
     placeholder: "Comece a escrever...",
   };
-  // const handleUpdate = event => {
-  //   const editorContent = event.target.innerHTML;
-  //   setEscrito(editorContent);
-  // };
 
   const handleInsert = async e => {
     let emailValid = /^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
