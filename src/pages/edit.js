@@ -22,7 +22,6 @@ import { toast, Toaster } from "react-hot-toast";
 
 import Layout from "../components/layout";
 import Seo from "../components/seo";
-<<<<<<< HEAD
 
 const Edit = ({ location, ...rest }) => {
   const [escritos, setEscritos] = useState([]);
@@ -42,37 +41,6 @@ const Edit = ({ location, ...rest }) => {
       setLoading(false);
     };
     getEscritos();
-=======
-("");
-// const Edit = () => {
-const Edit = ({ location, ...rest }) => {
-	const [escritos, setEscritos] = useState([]);
-	const [loading, setLoading] = useState(true);
-
-	if (typeof window !== "undefined") {
-		const db = getFirestore(app);
-		const escritosColRef = collection(db, "escritos");
-		const q = query(escritosColRef, orderBy("autor"));
-		// logged in
-		const auth = getAuth(app);
-		const user = auth.currentUser;
-	}
-	useEffect(() => {
-		const getEscritos = async () => {
-			const escritosData = await getDocs(q);
-			setEscritos(
-				escritosData.docs.map(doc => ({ ...doc.data(), id: doc.id }))
-			);
-			setLoading(false);
-		};
-		getEscritos();
-
-		if (!user && location.pathname !== `/login`) {
-			navigate("/login");
-			return null;
-		}
-	}, []);
->>>>>>> 6770c565f710dd5d76827ca5d5d48c994e646ebe
 
     if (!user && location.pathname !== `/login`) {
       navigate("/login");

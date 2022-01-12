@@ -12,8 +12,8 @@ import app from "gatsby-plugin-firebase-v9.0";
 import {
   addDoc,
   collection,
-  getDocs,
-  doc,
+  // getDocs,
+  // doc,
   getFirestore,
 } from "firebase/firestore";
 
@@ -25,10 +25,8 @@ const Escritos = () => {
   const [autor, setAutor] = useState("");
   const [titulo, setTitulo] = useState("");
 
-  if (typeof window !== "undefined") {
-    const db = getFirestore(app);
-    const escritosColRef = collection(db, "escritos");
-  }
+  const db = getFirestore(app);
+  const escritosColRef = collection(db, "escritos");
 
   const isSSR = typeof window === "undefined";
 
@@ -39,7 +37,8 @@ const Escritos = () => {
   };
 
   const handleInsert = async e => {
-    let emailValid = /^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
+    let emailValid =
+      /^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
     e.preventDefault();
 
     if (!email) {
