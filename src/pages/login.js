@@ -21,7 +21,6 @@ const Login = () => {
 		const auth = getAuth(app);
 		try {
 			await signInWithEmailAndPassword(auth, email, password);
-
 			navigate("/edit");
 			toast.success("Logado com sucesso!");
 		} catch (error) {
