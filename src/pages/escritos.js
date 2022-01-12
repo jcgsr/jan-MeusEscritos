@@ -29,6 +29,8 @@ const Escritos = () => {
   const db = getFirestore(app);
   const escritosColRef = collection(db, "escritos");
 
+  const isSSR = typeof window === "undefined";
+
   const config = {
     readonly: false,
     height: 400,
@@ -108,18 +110,20 @@ const Escritos = () => {
             />
             <p id="obrigatorio">*Campo obrigatório</p>
           </section>
-          <div id="jodit-editor">
-            <JoditEditor
-              ref={editor}
-              value={escrito}
-              config={config}
-              onBlur={newContent => setEscrito(newContent)}
-              onChange={newContent => {}}
-            />
-            <button type="submit" className="btn" onClick={handleInsert}>
-              publicar
-            </button>
-          </div>
+          {!isSSR && (
+            <div id="jodit-editor">
+              <JoditEditor
+                ref={editor}
+                value={escrito}
+                config={config}
+                onBlur={newContent => setEscrito(newContent)}
+                onChange={newContent => {}}
+              />
+              <button type="submit" className="btn" onClick={handleInsert}>
+                publicar
+              </button>
+            </div>
+          )}
         </form>
       </section>
     </Layout>

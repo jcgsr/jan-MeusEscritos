@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { Router } from "@reach/router";
+import PrivateRoute from "./edit";
 
 import app from "gatsby-plugin-firebase-v9.0";
 import { signInWithEmailAndPassword, getAuth } from "firebase/auth";
@@ -30,6 +32,9 @@ const Login = () => {
 	return (
 		<Layout>
 			<Seo title="Login" />
+			<Router basepath="/">
+				<PrivateRoute path="/edit" />
+			</Router>
 			<Toaster />
 			<h2>Login</h2>
 
