@@ -76,37 +76,9 @@ const IndexPage = () => {
         </button>
         <h2>Escritos</h2>
         <section className="escritos">
-          {
-            escritos.map(escrito => (
-              <Escrito escrito={escrito} key={escrito.id} />
-            ))
-            // }
-            // // return (
-            // //   <div key={escrito.id}>
-            // //     <p>
-            // //       Autor: <strong>{escrito.autor}</strong>
-            // //     </p>
-            // //     <p>
-            // //       {" "}
-            // //       Título: <strong>{escrito.titulo}</strong>
-            // //     </p>
-            // //     <div id="obras">
-            // //       {" "}
-            // //       {readmore
-            //         ? parse(escrito.escrito)
-            //         : parse(escrito.escrito.substring(0, 200))}
-            //       <button id="readmore" onClick={() => setReadmore(!readmore)}>
-            //         {readmore ? "ler menos" : "ler mais"}
-            //       </button>
-            //       <Link to="#beginning">
-            //         <BsFillArrowUpCircleFill />
-            //       </Link>
-            //     </div>
-            //     <hr />
-            //   </div>
-            // );
-          }
-          )}
+          {escritos.map(escrito => (
+            <Escrito escrito={escrito} key={escrito.id} />
+          ))}
         </section>
       </main>
     </Layout>
