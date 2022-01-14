@@ -2,9 +2,7 @@
 
 # Meus Escritos
 
-<p align="center">
-	<img alt="Foto de uma caneta antiga" src="https://www.meusescritos.com.br/static/f774812233c84148a96b6b83631e96d7/5c833/pen.webp" width="60" />
-</p>
+<img alt="Foto de uma caneta antiga" src="https://www.meusescritos.com.br/static/f774812233c84148a96b6b83631e96d7/5c833/pen.webp" width="60" />
 
 Site criado para que os escritores possam divulgar suas obras sem custo algum.
 

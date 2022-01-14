@@ -3,6 +3,8 @@ import { Link } from "gatsby";
 
 import { MdOutlineLogin, MdClose, MdMenu, MdInfo } from "react-icons/md";
 
+import logo from "../images/logo.svg";
+
 import { FaPenAlt } from "react-icons/fa";
 
 const Header = ({ siteTitle }) => {
@@ -11,7 +13,13 @@ const Header = ({ siteTitle }) => {
     <nav>
       <div className="nav-center">
         <div className="nav-header">
-          <Link to="/">Meus Escritos</Link>
+          <Link to="/">
+            <img
+              src={logo}
+              alt="Meus Escritos logo"
+              style={{ height: "1.3rem" }}
+            />
+          </Link>
           <button
             className="nav-toggle"
             onClick={() => setShowLinks(!showLinks)}
