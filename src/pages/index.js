@@ -4,12 +4,9 @@ import { StaticImage } from "gatsby-plugin-image";
 
 import Layout from "../components/layout";
 import Seo from "../components/seo";
-
-import parse from "html-react-parser";
+import Escrito from "../components/escrito";
 
 import app from "gatsby-plugin-firebase-v9.0";
-
-import { BsFillArrowUpCircleFill } from "react-icons/bs";
 
 import PulseLoader from "react-spinners/PulseLoader";
 
@@ -79,32 +76,37 @@ const IndexPage = () => {
         </button>
         <h2>Escritos</h2>
         <section className="escritos">
-          {escritos.map(escrito => {
-            return (
-              <div>
-                <p>
-                  Autor: <strong>{escrito.autor}</strong>
-                </p>
-                <p>
-                  {" "}
-                  Título: <strong>{escrito.titulo}</strong>
-                </p>
-                <div id="obras">
-                  {" "}
-                  {readmore
-                    ? parse(escrito.escrito)
-                    : parse(escrito.escrito.substring(0, 200))}
-                  <button id="readmore" onClick={() => setReadmore(!readmore)}>
-                    {readmore ? "ler menos" : "ler mais"}
-                  </button>
-                  <Link to="#beginning">
-                    <BsFillArrowUpCircleFill />
-                  </Link>
-                </div>
-                <hr />
-              </div>
-            );
-          })}
+          {
+            escritos.map(escrito => (
+              <Escrito escrito={escrito} key={escrito.id} />
+            ))
+            // }
+            // // return (
+            // //   <div key={escrito.id}>
+            // //     <p>
+            // //       Autor: <strong>{escrito.autor}</strong>
+            // //     </p>
+            // //     <p>
+            // //       {" "}
+            // //       Título: <strong>{escrito.titulo}</strong>
+            // //     </p>
+            // //     <div id="obras">
+            // //       {" "}
+            // //       {readmore
+            //         ? parse(escrito.escrito)
+            //         : parse(escrito.escrito.substring(0, 200))}
+            //       <button id="readmore" onClick={() => setReadmore(!readmore)}>
+            //         {readmore ? "ler menos" : "ler mais"}
+            //       </button>
+            //       <Link to="#beginning">
+            //         <BsFillArrowUpCircleFill />
+            //       </Link>
+            //     </div>
+            //     <hr />
+            //   </div>
+            // );
+          }
+          )}
         </section>
       </main>
     </Layout>
