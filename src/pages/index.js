@@ -30,7 +30,7 @@ const IndexPage = () => {
   const q = query(escritosColRef, orderBy("autor"));
 
   // Mostrar mais/menos
-  const [readmore, setReadmore] = useState(false);
+  /*const [readmore, setReadmore] = useState(false);*/
 
   useEffect(() => {
     const getEscritos = async () => {

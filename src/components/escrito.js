@@ -10,7 +10,7 @@ import parse from "html-react-parser";
 
 import {
   collection,
-  getDocs,
+  /*getDocs,*/
   // doc,
   getFirestore,
   orderBy,
